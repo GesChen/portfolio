@@ -34,14 +34,6 @@ function parseUnitString(value) {
         return NaN; // Handle unsupported units
     }
 }
-function getTextHeight(text, font) {
-    // re-use canvas object for better performance
-    const canvas = getTextHeight.canvas || (getTextHeight.canvas = document.createElement("canvas"));
-    const context = canvas.getContext("2d");
-    context.font = font;
-    const metrics = context.measureText(text);
-    return metrics.height;
-}
 var extrainfoJson;
 fetch('extrainfo.json').then((response)=>response.json()).then((json)=>extrainfoJson = json);
 
@@ -58,7 +50,7 @@ window.onload = function(){
     for (var i = 0; i < iconDivs.length; i++) {
         iconDivs[i].addEventListener('click', function() {
             currentIconElement = this;
-            //this.classList.add('clicked');
+            this.classList.add('clicked');
             //document.getElementById('fullview').classList.add('fullviewactive');
 
             // get src from child image 
@@ -173,7 +165,8 @@ window.onload = function(){
         const duration = getComputedStyle(miparent).getPropertyValue('--fullscreen-transition-time');
         setTimeout(() => {
             miparent.style.display = 'none';
-        }, (duration.slice(0, -1)) * 1000);
+            currentIconElement.classList.remove('clicked');
+        }, (duration.slice(0, -1) - .01) * 1000);
     });
     /*document.getElementById('fullviewreturn').addEventListener('click', function() {
         console.log('returning');
