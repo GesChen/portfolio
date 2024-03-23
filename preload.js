@@ -2,6 +2,7 @@ var extrainfoJson;
 
 (async () => {
     try {
+        await new Promise(resolve => setTimeout(resolve, 100));
         const response = await fetch('extrainfo.json');
         const json = await response.json();
         extrainfoJson = json;
