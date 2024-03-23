@@ -1,11 +1,17 @@
 var extrainfoJson;
-fetch('extrainfo.json').then((response)=>response.json()).then((json)=> {
+
+(async () => {
+  try {
+    const response = await fetch('extrainfo.json');
+    const json = await response.json();
     extrainfoJson = json;
-    console.log(extrainfoJson); 
+
     for (let key in extrainfoJson) {
-        let location = extrainfoJson[key]['location'];
-        
-        let image = new Image();
-        image.src = location;
+      let location = extrainfoJson[key]['location'];
+      let image = new Image();
+      image.src = location;
     }
-});
+  } catch (error) {
+    console.error('Error fetching extrainfo.json:', error);
+  }
+})();
