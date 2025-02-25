@@ -9,12 +9,14 @@ function fetchImage(path) {
     };
     img.src = path;
 }
+
 function setPosAndSize(element, left, top, width, height) {  
     element.style.left = left + 'px';
     element.style.top = top + 'px';
     element.style.width = width + 'px';
     element.style.height = height + 'px';
 }
+
 function parseUnitString(value) {
     const unit = value.slice(-2).toLowerCase(); // Extract the unit (last 2 characters)
     const numberValue = parseFloat(value.slice(0, -2)); // Extract the numerical value
