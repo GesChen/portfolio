@@ -6,3 +6,5 @@ Currently I have some of my photography and computer graphics work on here.<br>
 Double click a file to view it<br>
 <br>
 Descriptions for each are coming!<br>
+<br>
+Update 12-25-25: Added Desmos graphs. Enjoy!

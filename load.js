@@ -18,6 +18,11 @@ fetch('assets/files.json')
             if (file.slice(-1) === 'd') 
                 icon = 'text.png';
 
+            // now for graphs
+            if (file.slice(-1) === 'h') 
+                icon = file.slice(0, -5) + 'png';
+
+
             const imageDiv = document.createElement("div");
             imageDiv.className = "itemimage";
             imageDiv.style.backgroundImage = `url('assets/icons/${icon}')`;
@@ -74,6 +79,30 @@ async function preview(file) {
                     itemDiv.innerHTML = text);
 
             break;
+        case '.graph':
+            itemDiv = document.createElement("div");
+            itemDiv.style.width = '100%';
+            itemDiv.style.height= '100%';
+
+            var graphDiv = document.createElement('iframe');
+            itemDiv.appendChild(graphDiv);
+            
+            var linkDiv = document.createElement('a');
+            linkDiv.target = '_blank';
+            linkDiv.style.textAlign = 'center';
+            linkDiv.style.display = 'inline-block';
+            linkDiv.style.height = 'fit-content';
+            linkDiv.style.color = 'lightslategray';
+
+            itemDiv.appendChild(linkDiv);
+            
+            fetch(`assets/files/${file}`)
+                .then(res => res.text())
+                .then(text => {
+                    graphDiv.src = text;
+                    linkDiv.href = text;
+                    linkDiv.textContent = text;
+                });
     }
 
     pvname.textContent = file;

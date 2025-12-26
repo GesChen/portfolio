@@ -62,6 +62,10 @@ def create_icon(path):
 		texticon(path)
 		return
 	
+	if path[-1] == 'h':
+		print(f'{path} is a graph')
+		return
+	
 	img = Image.open(path)
 	
 	w_percent = (iconwidth / float(img.width))
