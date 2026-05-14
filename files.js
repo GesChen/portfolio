@@ -1,3 +1,6 @@
+// dont need to recompute
+const iconnamecache = {};
+
 fetch('assets/files.json')
     .then(response => response.json())
     .then(data => {
@@ -5,6 +8,7 @@ fetch('assets/files.json')
         data.forEach(file => {
             const itemDiv = document.createElement("div");
             itemDiv.className = "item";
+            itemDiv.id = file;
 
             const nameSpan = document.createElement("span");
             nameSpan.className = "itemname";
@@ -22,6 +26,7 @@ fetch('assets/files.json')
             if (file.slice(-1) === 'h') 
                 icon = file.slice(0, -5) + 'png';
 
+            iconnamecache[file] = icon;
 
             const imageDiv = document.createElement("div");
             imageDiv.className = "itemimage";
@@ -31,14 +36,21 @@ fetch('assets/files.json')
             itemDiv.appendChild(nameSpan);
             items.appendChild(itemDiv);
 
-            itemDiv.addEventListener('dblclick', () => {
-            preview(file);
-            })
+            itemDiv.addEventListener('dblclick', () => preview(file));
+            itemDiv.addEventListener('click', () => select(file, itemDiv));
+        
+            itemDiv.addEventListener('mouseenter', () => mouseOverBg = false);
+            itemDiv.addEventListener('mouseleave', () => mouseOverBg = true);
         });
 
-        document.getElementById('statuscount').textContent = `${data.length} items   ︱`;
+        document.getElementById('totalcount').textContent = `${data.length} items   ︱ `;
     })
     .catch(err => console.error(err));
+
+let metadata = null; 
+fetch('assets/metadata.json')
+    .then(r => r.json())
+    .then (d => metadata = d);
 
 const pvelem = document.getElementById('preview');
 const pvcontent = document.getElementById('pvcontent');
@@ -113,10 +125,66 @@ async function preview(file) {
     document.body.style.cursor = 'default';
 }
 
+let shift = false;
+document.addEventListener('keydown', (e) => { if (e.key == "Shift") shift = true; });
+document.addEventListener('keyup', (e) => { if (e.key == "Shift") shift = false; });
+
+const descPrev = document.getElementById("descprev");
+const descText = document.getElementById('desctext');
+const selectedcount = document.getElementById('selectedcount');
+
+let selected = [];
+
+async function select(file, itemDiv) {
+    if (!shift) {
+        desel();
+    }
+
+    if (!shift) selected = []
+    selected.push(file);
+    
+    itemDiv.classList.add('selected');
+
+    // load prev into the box and metadata
+    if (file.endsWith('g'))
+        descPrev.style.backgroundImage = `url('assets/files/${file}')`
+    else 
+        descPrev.style.backgroundImage = `url('assets/icons/${iconnamecache[file]}')`
+
+    // just desc for now
+    descText.textContent = metadata[file]['description'];
+
+    // update selected count
+    selectedcount.textContent = `${selected.length} item${
+        selected.length > 1 ? 's' : ''} selected  ︱`;
+}
+
+function desel() { 
+    selected.forEach(e => document.getElementById(e).classList.remove('selected'));
+}
+
+let mouseOverBg = true;
+
+document.getElementById('items').addEventListener('mousedown', () => {
+    if (!mouseOverBg) return;
+    
+    desel();
+    selected = [];
+    selectedcount.textContent = '';
+})
+
+document.addEventListener('keydown', (e) => {
+    if (e.key == "Enter" && selected.length == 1)
+        preview(selected[0]);
+})
+
 const pvx = document.getElementById('pvxbutton');
 pvx.addEventListener('click', () => {
     pvelem.style.display = 'none';
 });
+
+document.addEventListener('keydown', (e) => { 
+    if (e.key == "Escape") pvelem.style.display = 'none'; })
 
 var contentfull = false;
 pvcontent.addEventListener('click', ()=>{

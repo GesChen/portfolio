@@ -23,14 +23,23 @@
         <div id="content">
             <div id="navigation">
             </div>
-            <div id="bar">
-            </div>
-            <div id="items">
+            <div class="bar" id="barl"></div>
+            <div id="items"></div>
+            <div class="bar" id="barr"></div>
+            <div id="description">
+                <div id="descprevcontainer">
+                    <div id="descprev"></div>
+                </div>
+                <div id="desctextcontainer">
+                    <span id="desctitle"><b>Description</b></span>
+                    <span id="desctext"></span>
+                </div>
             </div>
         </div>
         <div id="statusbar">
             <div style="width: 15px;"></div>
-            <span id="statuscount" class="statuscontent">items  ┃</span>
+            <span id="totalcount" class="statuscontent">items  ┃</span>
+            <span id="selectedcount" class="statuscontent"></span>
         </div>
     </div>
     <div id="preview" style="display: none;">
@@ -41,7 +50,8 @@
         <div id="pvcontent">
         </div>
     </div>
-    <script src="behaviour.js"></script>
-    <script src="load.js"></script>
+    <script src="bar.js"></script>
+    <script src="window.js"></script>
+    <script src="files.js"></script>
 </body>
 </html>
