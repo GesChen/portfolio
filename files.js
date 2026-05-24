@@ -1,6 +1,8 @@
 // dont need to recompute
 const iconnamecache = {};
 
+let all = []; // elements
+
 fetch('assets/files.json')
     .then(response => response.json())
     .then(data => {
@@ -41,16 +43,73 @@ fetch('assets/files.json')
         
             itemDiv.addEventListener('mouseenter', () => mouseOverBg = false);
             itemDiv.addEventListener('mouseleave', () => mouseOverBg = true);
+
+            all.push(itemDiv);
         });
 
         document.getElementById('totalcount').textContent = `${data.length} items   ︱ `;
     })
+    .then(() => { testItem = document.getElementsByClassName('item')[0] })
     .catch(err => console.error(err));
 
 let metadata = null; 
 fetch('assets/metadata.json')
     .then(r => r.json())
-    .then (d => metadata = d);
+    .then(d => metadata = d)
+    .catch(err => console.error(err));
+
+// set up folders
+let folders = {}; // name : [element, element..]
+fetch('assets/folders.json')
+    .then(r => r.json())
+    .then(fs => {
+        const cont = document.getElementById('folders');
+        for (let f in fs) {
+            if (f === 'unsorted') continue;
+            
+            let elements = [];
+            fs[f].forEach(file => {
+                elements.push(document.getElementById(file));
+            });
+            folders[f] = elements;
+
+            let main = document.createElement('div');
+            main.classList.add('folder');
+            main.id = f;
+            main.addEventListener('click', () => selectfolder(f));
+
+            let icon = document.createElement('div');
+            icon.classList.add('foldericon');
+
+            let name = document.createElement('span');
+            name.classList.add('foldername');
+            name.textContent = f;
+
+            main.appendChild(icon);
+            main.appendChild(name);
+
+            cont.insertBefore(main, cont.firstChild);
+        }
+    })
+    .catch(err => console.error(err));
+
+
+let navbaradded = [];
+const navlast = document.getElementById('navlast');
+
+function selectfolder(name) {
+    // hide all
+    all.forEach(f => {
+        f.style.display = 'none';
+    });
+
+    // unhide folder contents
+    folders[name].forEach(f => {
+        f.style.display = '';
+    });
+
+    navlast.textContent = name;
+}
 
 const pvelem = document.getElementById('preview');
 const pvcontent = document.getElementById('pvcontent');
@@ -184,7 +243,8 @@ pvx.addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', (e) => { 
-    if (e.key == "Escape") pvelem.style.display = 'none'; })
+    if (e.key == "Escape") pvelem.style.display = 'none'; 
+})
 
 var contentfull = false;
 pvcontent.addEventListener('click', ()=>{
@@ -192,3 +252,74 @@ pvcontent.addEventListener('click', ()=>{
 
 
 });
+
+
+var testItem;
+
+// arrow nav
+document.addEventListener('keydown', (e) => {
+    if (selected.length == 0) return;
+
+    var sx = testItem.offsetWidth;
+    var sy = testItem.offsetHeight;
+
+    switch (event.key) {
+        case "ArrowLeft":
+            selectoff(-sx, 0, e);
+            break;
+        case "ArrowRight":
+            selectoff(sx, 0, e);
+            break;
+        case "ArrowUp":
+            selectoff(0, -sy, e);
+            break;
+        case "ArrowDown":
+            selectoff(0, sy, e);
+            break;
+    }
+})
+
+const items = document.getElementById('items');
+
+function indexselect(indexoff) {
+
+}
+
+function selectoff(offx, offy, e) {
+    e.preventDefault();
+
+    var ref = document.getElementById(selected.at(-1));
+    var rect = ref.getBoundingClientRect();
+    var cx = rect.left + rect.width / 2;
+    var cy = rect.top + rect.height / 2;
+    var px = cx + offx;
+    var py = cy + offy;
+
+
+    if (cy + offy > window.innerHeight - rect.height / 2) {
+        items.scrollBy(0, 
+            (rect.bottom + rect.height) - window.innerHeight + 50);
+
+        py = window.innerHeight - 50;
+    }
+    if (cy + offy < rect.height / 2 + 20) {
+        items.scrollBy(0, 
+            rect.top - rect.height - 40
+        );
+
+        py = 50;
+    }
+
+    var item = itemAt(px, py);
+    if (item == null) return;
+    var id = item.id;
+
+    select(id, item);
+
+    
+}
+
+function itemAt(x, y) {
+    var elements = document.elementsFromPoint(x, y)
+    return elements.find((e) => e.classList.contains('item'))
+}

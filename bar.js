@@ -1,6 +1,6 @@
 // percents
 const splitminl = 5;
-const splitmaxl = 20;
+const splitmaxl = 30;
 const splitminr = 70;
 const splitmaxr = 90;
 

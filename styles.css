@@ -1,5 +1,5 @@
 :root {
-    --splitl: 10%; /*left split screen vw percent*/
+    --splitl: 16%; /*left split screen vw percent*/
     --splitr: 80%; /*right split same*/
 }
 
@@ -86,9 +86,40 @@ html, body {
     height: 92%;
 }
 
-#navigation {
+#folders {
     flex: 0 0 var(--splitl);
     background-color: #181819;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.folder {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0 5px 30px;
+    width: 100%;
+    column-gap: 5px;
+    
+    cursor: pointer;
+}
+
+.folder:hover {
+    background-color: #333232;
+}
+
+.foldericon {
+    height: 100%;
+    aspect-ratio: 1;
+    background-color: hotpink;
+}
+
+.foldername {
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .bar {
@@ -215,7 +246,7 @@ html, body {
     box-shadow: 5px 5px 20px black;
 
     /* resize: both; */
-    overflow: auto;
+    /* overflow: hidden; */
 }
 
 #pvbar {
@@ -275,6 +306,43 @@ html, body {
     background-repeat: no-repeat;
 
     /* cursor: pointer; */
+}
+
+#pvdragcontainer {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.pvdrag {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+}
+
+#pvdtl {
+    left: 0; top: 0;
+    transform: translate(-10px, -10px);
+    cursor: nw-resize;
+}
+
+#pvdtr {
+    right: 0; top: 0;
+    transform: translate(10px, -10px);
+    cursor: ne-resize;
+}
+
+#pvdbl {
+    left: 0; bottom: 0;
+    transform: translate(-10px, 10px);
+    cursor: sw-resize;
+}
+
+#pvdbr {
+    right: 0; bottom: 0;
+    transform: translate(10px, 10px);
+    cursor: se-resize;
 }
 
 /*idk*/
