@@ -37,6 +37,11 @@ html, body {
     align-items: center;
 }
 
+#navroot {
+    display: grid;
+    align-items: center;
+}
+
 .navarrow {
     display: inline-block;
     text-align: center;
@@ -94,6 +99,8 @@ html, body {
     flex-direction: column;
     min-width: 0;
     overflow: hidden;
+
+    padding-top: 10px;
 }
 
 .folder {
@@ -113,7 +120,11 @@ html, body {
 .foldericon {
     height: 100%;
     aspect-ratio: 1;
-    background-color: hotpink;
+    background-image: url('assets/folder.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: crisp-edges;
 }
 
 .foldername {
@@ -155,6 +166,10 @@ html, body {
 
     display: flex;
     flex-wrap: wrap;
+
+    align-content: flex-start;
+    align-items: flex-start;
+
     overflow-y: auto;
     gap: 10px;
 
