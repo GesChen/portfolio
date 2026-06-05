@@ -15,8 +15,11 @@ handle.addEventListener('mousedown', (e) => {
 });
 
 let dragE = null;
+let movementE = null;
 
 document.addEventListener('mousemove', (e) => {
+    movementE = e;
+
     if (!draggingpv) return;
     dragE = e;
 });
@@ -49,9 +52,13 @@ function dragAnim() {
     }
 
     if (resizing) {
+        var width, height, cX, cY;
+
         switch (resizingCorner) {
             case 'tl':
-
+                let brX = rsswLeft + rsswWidth / 2;
+                let brY = rsswTop + rsswHeight / 2;
+                
                 break;
             case 'tr':
 

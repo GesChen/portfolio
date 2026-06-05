@@ -3,70 +3,70 @@
     "description": "Please read this!"
   },
   "2048.graph": {
-    "description": "243654743"
+    "description": "Working recreation of 2048 in Desmos. Controls are in the graph."
   },
   "2dchess.graph": {
-    "description": "12341234"
+    "description": "Precursor to the 3D chess graph. Fully working chessboard with movable pieces."
   },
   "2dminecraft.graph": {
-    "description": ""
+    "description": "Procedurally generated 2D Minecraft overworld with a cave. Planned on adding more, but the rendering process was very slow with all of the image clones. Might come back to this though with new rendering methods."
   },
   "antelope valley.jpg": {
-    "description": ""
+    "description": "A picture from the bottom of a crevice in Antelope Canyon. Slightly overexposed but unedited, the colors are beautiful."
   },
   "Apocalyptic City.jpg": {
-    "description": ""
+    "description": "A rendering of a post-apoctalyptic city. Playing around with volumetrics and lighting, got a scene I'm quite proud of."
   },
   "Aqueduct.jpg": {
-    "description": ""
+    "description": "A procedurally generated aqueduct. There is somewhere a video of the procedural process working but I can't find it. A good geometry nodes exercise."
   },
   "artifact.jpg": {
-    "description": ""
+    "description": "The product from a short Blender class by a friend. Learned manual remeshing with a 3d scanned artifact model. Material was supposed to be a baked map from the original but I deviated and made a procedural rusted material. Embossing is from original though. "
   },
   "brooklyn bridge.jpg": {
-    "description": ""
+    "description": "A picture of the Brooklyn Bridge from the Brooklyn side."
   },
   "Cafe.jpg": {
-    "description": ""
+    "description": "Another Blender class creation. Learned alot of general Blender skills and modelling, made this cafe scene based on a reference cafe. All assets are made by me, including the hot dogs."
   },
   "Candle.jpg": {
-    "description": ""
+    "description": "Special Projects class creation. We were making and selling candles in class, and this was part of an advertisement I made for it. "
   },
   "Car 2.jpg": {
-    "description": ""
+    "description": "An angle of the car I quite liked. The watery surface made a cool effect with its reflection and the white background. Plus the car silhouette. "
   },
   "Car.jpg": {
-    "description": ""
+    "description": "This was a quite peculiar project. We were going to construct an entire car out of cardboard and put it in the middle of the school as a prank. This was in art class. 2 of my friends in that class worked on the prank with me. I mocked up cardboard panels in Blender. It made an entire car, so I might as well render with it. Got some nice renders in the end, despite the gaps. "
   },
   "Channel Banner.jpg": {
-    "description": ""
+    "description": "The banner for my old Youtube channel. It shouldn't be too hard to guess the name. The world was an amplified world that I exported into Blender, then added the big text. Fun volumetrics as well with the godrays. "
   },
   "chess.graph": {
-    "description": ""
+    "description": "One of the winners of the 2024 Desmos Art Expo. Not directly forked from the original 2D chess, since I wanted to remake it. New logic, castling, and en pessant. Pieces were made by heavily decimating chess piece 3D models, exporting with Python into triangle and vertex lists for Desmos, and rendering with lots of individual triangles. This took a while, so I'm glad the effort paid off."
   },
   "Christmasy Interior.jpg": {
-    "description": ""
+    "description": "A cozy interior learning scene. Partial recreation of my real living room but wildly modified. Props are all free ones I found online, so alot dont make much sense. Still very proud of this little scene though."
   },
   "clouds.jpg": {
-    "description": ""
+    "description": "A really pretty bunch of clouds I took from my dorm in New York. I think this was a sunset picture. No editing on this one either, this is straight from the camera. "
   },
   "Concept Part Mechanism.mp4": {
-    "description": ""
+    "description": "A rendering for a concept door stopper part. Way overcomplicated but it made for a cool demo. Really like this UV grid-metal-HDRI sky vibe. Might do more renders like this."
   },
   "connect4.graph": {
-    "description": ""
+    "description": "Working connect 4 game in Desmos. Slight 3D effect on the main board and winning does work. No bot though, all pieces are placed manually. Best played not with yourself."
   },
   "cornell.jpg": {
-    "description": ""
+    "description": "A cornell box rendered with my own path tracer in ShaderToy. Lighting computation is a little messed up though as the green wall shows. I really dont know what's wrong with my code, but the result is still pretty good."
   },
   "desmordle.graph": {
-    "description": ""
+    "description": "Wordle in Desmos is Desmordle I guess. Wordesmos might have been better. This uses the official NYT word list for accepted words, capped at 10,000 for Desmos's list length limit, plus the 2000+ possible words that can show up as the actual word. "
   },
   "duck.jpg": {
-    "description": ""
+    "description": "Stuffed duck posed up next to my PC. Purple lights on max made a really cool looking effect. That plus the founders edition card."
   },
   "ellis.jpg": {
-    "description": ""
+    "description": "Still one of the best pictures I think I've ever taken. I don't know why it looks so good. The colors are so perfect and everything just looks so crisp. This was taken in the second floor of the Ellis Island building."
   },
   "garage door spool thing.jpg": {
     "description": ""
