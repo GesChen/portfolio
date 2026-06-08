@@ -42,7 +42,15 @@ function startResize(corner, e) {
     resizing = true;
     resizingCorner = corner;
 
-    rsswLeft = dragDiv.style.left;
+    rsswLeft = pxValue(dragDiv.style.left);
+    rsswTop = pxValue(dragDiv.style.top);
+    rsswWidth = pxValue(dragDiv.style.width);
+    rsswHeight = pxValue(dragDiv.style.height);
+    console.log(`${rsswLeft} ${rsswTop} ${rsswWidth} ${rsswHeight}`)
+}
+
+function pxValue(v) {
+    return Number(v.substring(0, v.length - 2));
 }
 
 function dragAnim() {
@@ -56,9 +64,14 @@ function dragAnim() {
 
         switch (resizingCorner) {
             case 'tl':
+                let tlX = movementE.clientX;
+                let tlY = movementE.clientY;
                 let brX = rsswLeft + rsswWidth / 2;
                 let brY = rsswTop + rsswHeight / 2;
-                
+                width = Math.abs(tlX - brX);
+                height = Math.abs(tlY - brY);
+                cX = (tlX + brX) / 2;
+                cY = (tlY + brY) / 2;
                 break;
             case 'tr':
 
@@ -70,6 +83,11 @@ function dragAnim() {
 
                 break;
         }
+        
+        dragDiv.style.left = `${cX}px`;
+        dragDiv.style.top = `${cY}px`;
+        dragDiv.style.width = `${width}px`;
+        dragDiv.style.height = `${height}px`;
     }
 
     requestAnimationFrame(dragAnim);
