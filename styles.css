@@ -308,7 +308,7 @@ html, body {
 #pvcontent {
     flex: 0 0 calc(100% - 30px);
 
-    padding: 50px;
+    padding: 5%;
     box-sizing: border-box;
 }
 

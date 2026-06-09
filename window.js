@@ -34,19 +34,41 @@ for (let i = 0; i < drags.length; i++) {
 let resizeStartE, resizingCorner;
 let resizing = false;
 
-// resize start window ..
-let rsswLeft, rsswTop, rsswWidth, rsswHeight;
+let rsOtherCornerX, rsOtherCornerY;
 
 function startResize(corner, e) {
     resizeStartE = e;
     resizing = true;
     resizingCorner = corner;
 
-    rsswLeft = pxValue(dragDiv.style.left);
-    rsswTop = pxValue(dragDiv.style.top);
-    rsswWidth = pxValue(dragDiv.style.width);
-    rsswHeight = pxValue(dragDiv.style.height);
-    console.log(`${rsswLeft} ${rsswTop} ${rsswWidth} ${rsswHeight}`)
+    let style = getComputedStyle(dragDiv);
+    let left = pxValue(style.left);
+    let top = pxValue(style.top);
+    let width = pxValue(style.width);
+    let height = pxValue(style.height);
+
+    let c = corner;
+    rsOtherCornerX = left + ((c == 'tl' || c == 'bl') ? 1 : -1) * width / 2;
+    rsOtherCornerY = top + ((c == 'tl' || c == 'tr') ? 1 : -1) * height / 2;
+
+    // switch (resizingCorner) {
+    //     case 'tl':
+    //         rsOtherCornerX = rsswLeft + rsswWidth / 2;
+    //         rsOtherCornerY = rsswTop + rsswHeight / 2;
+    //         break;
+    //     case 'tr':
+    //         rsOtherCornerX = rsswLeft - rsswWidth / 2;
+    //         rsOtherCornerY = rsswTop + rsswHeight / 2;
+    //         break;
+    //     case 'bl':
+    //         rsOtherCornerX = rsswLeft + rsswWidth / 2;
+    //         rsOtherCornerY = rsswTop - rsswHeight / 2;
+    //         break;
+    //     case 'br':
+    //         rsOtherCornerX = rsswLeft - rsswWidth / 2;
+    //         rsOtherCornerY = rsswTop - rsswHeight / 2;
+    //         break;
+    // }
 }
 
 function pxValue(v) {
@@ -60,29 +82,10 @@ function dragAnim() {
     }
 
     if (resizing) {
-        var width, height, cX, cY;
-
-        switch (resizingCorner) {
-            case 'tl':
-                let tlX = movementE.clientX;
-                let tlY = movementE.clientY;
-                let brX = rsswLeft + rsswWidth / 2;
-                let brY = rsswTop + rsswHeight / 2;
-                width = Math.abs(tlX - brX);
-                height = Math.abs(tlY - brY);
-                cX = (tlX + brX) / 2;
-                cY = (tlY + brY) / 2;
-                break;
-            case 'tr':
-
-                break;
-            case 'bl':
-
-                break;
-            case 'br':
-
-                break;
-        }
+        let width = Math.abs(movementE.clientX - rsOtherCornerX);
+        let height = Math.abs(movementE.clientY - rsOtherCornerY);
+        let cX = (movementE.clientX + rsOtherCornerX) / 2;
+        let cY = (movementE.clientY + rsOtherCornerY) / 2;
         
         dragDiv.style.left = `${cX}px`;
         dragDiv.style.top = `${cY}px`;
