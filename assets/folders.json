@@ -9,7 +9,8 @@
     "minesweeper.graph",
     "pathtracer.graph",
     "solitaire.graph",
-    "tetris.graph"
+    "tetris.graph",
+    "blast.graph"
   ],
   "photography": [
     "antelope valley.jpg",

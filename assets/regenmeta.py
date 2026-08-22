@@ -1,51 +1,50 @@
-import os
 import json
+from pathlib import Path
 
-thisdir = os.path.dirname(os.path.abspath(__file__))
-filesdir = os.path.join(thisdir, "files")
+this_dir = Path(__file__).resolve().parent
+files_dir = this_dir / "files"
+metadata_path = this_dir / "metadata.json"
+backup_path = this_dir / "metadata.json.backup"
 
-files = [
-    f for f in os.listdir(filesdir)
-    if os.path.isfile(os.path.join(filesdir, f))
-]
+files = sorted(
+    (path.name for path in files_dir.iterdir() if path.is_file()),
+    key=str.casefold,
+)
 
-files.sort(key=lambda x: x.lower())
+with metadata_path.open("r", encoding="utf-8") as current_file:
+    current_metadata = json.load(current_file)
 
-with open(os.path.join(thisdir, "metadata.json"), 'r') as cur:
-    curdesc = json.load(cur)
+fields = ["description"]
 
-# fill in with current data
-data = {
-    file : curdesc[file] if file in curdesc else None
-    for file in files
-}
+data = {}
 
-# conform nonexistent
-fields = [
-    'description'
-]
+for filename in files:
+    description = current_metadata.get(filename)
 
-for d in data.keys():
-    if data[d] is None:
-        data[d] = { f : '' for f in fields}
-    else:
-        di = data[d]
-        for f in fields:
-            if f not in di:
-                di[f] = ''
+    if not isinstance(description, dict):
+        description = {}
 
-        todel = []
-        for dk in di.keys():
-            if dk not in fields:
-                todel.append(dk)
+    data[filename] = {
+        field: description.get(field, "")
+        for field in fields
+    }
 
-        for td in todel:
-            del data[d][td]
+# Back up the existing metadata.
+with backup_path.open("w", encoding="utf-8", newline="\n") as backup_file:
+    json.dump(
+        current_metadata,
+        backup_file,
+        indent=2,
+        ensure_ascii=False,
+    )
+    backup_file.write("\n")
 
-# backup
-with open(os.path.join(thisdir, "metadata.json.backup"), "w", encoding="utf-8") as backup:
-    json.dump(curdesc, backup, indent=2)
-
-# dump
-with open(os.path.join(thisdir, "metadata.json"), "w", encoding="utf-8") as file:
-    json.dump(data, file, indent=2)
+# Write updated metadata while preserving Unicode characters such as emojis.
+with metadata_path.open("w", encoding="utf-8", newline="\n") as metadata_file:
+    json.dump(
+        data,
+        metadata_file,
+        indent=2,
+        ensure_ascii=False,
+    )
+    metadata_file.write("\n")
