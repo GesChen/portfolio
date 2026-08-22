@@ -69,111 +69,111 @@
     "description": "Still one of the best pictures I think I've ever taken. I don't know why it looks so good. The colors are so perfect and everything just looks so crisp. This was taken in the second floor of the Ellis Island building."
   },
   "garage door spool thing.jpg": {
-    "description": ""
+    "description": "1/7 Unfinished garage interior, trying to model a picture of a garage that had really nice volumetrics. I wanted to recreate those volumetrics in Blender and play around with them, but I never finished this project. This part is a close up of the large torsion spring or something of the sort above the garage door."
   },
   "garage door thing.jpg": {
-    "description": ""
+    "description": "2/7 Unfinished garage interior, trying to model a picture of a garage that had really nice volumetrics. I wanted to recreate those volumetrics in Blender and play around with them, but I never finished this project. This part is the manual handle part of the garage door. I liked rendering these small parts close up with a small apeture, I really like the look."
   },
   "garage door top wheel.jpg": {
-    "description": ""
+    "description": "3/7 Unfinished garage interior, trying to model a picture of a garage that had really nice volumetrics. I wanted to recreate those volumetrics in Blender and play around with them, but I never finished this project. This is the topmost wheel of the closed garage door. The other one technically exists, but I hid it to open the room so some light could get in. The wheel rolls precisely along the track to bring the garage door up."
   },
   "garage full.jpg": {
-    "description": ""
+    "description": "4/7 Unfinished garage interior, trying to model a picture of a garage that had really nice volumetrics. I wanted to recreate those volumetrics in Blender and play around with them, but I never finished this project. This is a full render of the entire scene from the original POV from the reference image. It shows how much stuff I haven't done yet, I was focused on the door area for the entire time I worked on this. I might come back to this someday."
   },
   "garage hinge.jpg": {
-    "description": ""
+    "description": "5/7 Unfinished garage interior, trying to model a picture of a garage that had really nice volumetrics. I wanted to recreate those volumetrics in Blender and play around with them, but I never finished this project. Sort of a repeat of door top wheel. Might remove this. Just another of the wheels in the track."
   },
   "garage manual handle thing.jpg": {
-    "description": ""
+    "description": "6/7 Unfinished garage interior, trying to model a picture of a garage that had really nice volumetrics. I wanted to recreate those volumetrics in Blender and play around with them, but I never finished this project. Lower view of the other manual handle render, this is the actual handle and connection to the rest of the door that allows the handle to work."
   },
   "garage winch thing.jpg": {
-    "description": ""
+    "description": "7/7 Unfinished garage interior, trying to model a picture of a garage that had really nice volumetrics. I wanted to recreate those volumetrics in Blender and play around with them, but I never finished this project. I really didn't go into this with any good nomenclature for the pictures. This is the other side of the spool thing from part 1."
   },
   "godrays.jpg": {
-    "description": ""
+    "description": "Some nice godrays in my backyard, shining through the trees. I think this was right after the grass was cut, and some moisture was in the air. Not really sure though."
   },
   "Golden Sphere.jpg": {
-    "description": ""
+    "description": "A golden sphere, in the reflection of which you can see the entire rest of the museum exhibit that I made for a class. This isn't the main attraction from the exhibit, but it looks pretty cool, and I also can't really find the rest of the gallery, so.."
   },
   "grand canyon.jpg": {
-    "description": ""
+    "description": "As the name implies, this is a very nice view of the Grand Canyon, not sure exactly where this is. Taken at sundown, so the lighting is quite nice."
   },
   "Hallway.jpg": {
-    "description": ""
+    "description": "The power went out in our school one time, and it made this really creepy effect that I wanted to recreate in Blender. I think I did an alright job. "
   },
   "hotel.jpg": {
-    "description": ""
+    "description": "Interesting picture down the hallway of a hotel that we were staying at in Las Vegas. I think this one is straight from the camera, no editing."
   },
   "hypocaust.jpg": {
-    "description": ""
+    "description": "Model of a Roman hypocaust that I made a while ago for a class. Really quite proud of how well this one looks for how early on in my Blendering that I made it."
   },
   "jaguar.jpg": {
-    "description": ""
+    "description": "For some reason, the sun and land aligned for this picture, and this also unedited picture of our Jaguar SUV just looks so good, like something out of promotional material."
   },
   "jet.jpg": {
-    "description": ""
+    "description": "A really basic F117 inspired jet made just to show off my procedural engine plume generator. I originally couldn't even find the render where I had the plumes, but a bit of scouring later I finally found the one with the plume. The procedural plume was a really fun project from a while ago that I thought I had lost, but it was just because of my terrible organization that I only just recently re found it. May work on it again and release it, since it is actually really good."
   },
   "MC Physics.mp4": {
-    "description": ""
+    "description": "I really liked those \"IRL physics in minecraft!\" videos so I decided to give it a shot. This one has softbody slime, particle sand, and fluid sim water. Quite proud of this little scene. In one iteration I animated the clouds slightly wrong and they whizzed past at lightspeed. Fixed now."
   },
   "minesweeper.graph": {
-    "description": ""
+    "description": "Trying to make the classic Minesweeper in Desmos. The challenge with this one was making the surrounding GUI and the game tiles screen-size responsive. Didn't exactly work out the absolute best but still mostly works. The game itself was also pretty hard to make, but I didn't spend nearly as long on it as I did the GUI. An earlier version of the system that detects all tiles to reveal when an empty tile is clicked used an iterative flood fill solver that looked pretty cool since it acted over multiple frames, but I have switched over to a new instantaneous recursive method."
   },
   "modelo.jpg": {
-    "description": ""
+    "description": "A can of modelo found laying along the sid eof the road. Made an unreasonably good picture."
   },
   "moon.jpg": {
-    "description": ""
+    "description": "Nothing specific about the moon phase, I just really liked the look of this picture with the glow in the haze of clouds around it, and the really nice detail that you can see on the surface."
   },
   "pathtracer.graph": {
-    "description": ""
+    "description": "Is this one of my most complex graphs? I'm not really sure. It's up there with 3D chess though. I basically ported my ShaderToy pathtracer that I used to render the Cornell with into Desmos, essentially a line by line translation. I found out from this one that you can actually use 3D points in a 2D graph, Desmos just won't render them. Extremely useful for representing 3D space inside a 2D graph, but also it really helps compress lots of data together into larger chunks of information. Switching to 3D points sped the tracer up significantly."
   },
   "Penguin.jpg": {
-    "description": ""
+    "description": "Made for a separate competition, I wanted to reuse the assets for a nice promotional-poster-like render, but which I really only just made for myself. Still a cool fun render of a penguin pointing a hand sanitizer gun at you though. Can you guess when this was made?"
   },
   "pink sunset.jpg": {
-    "description": ""
+    "description": "A really pretty picture of the sunset from the cherry tree (?) in front of our Airbnb. The colors complement each other so well. This one might be slightly edited."
   },
   "Power Bank Concept.jpg": {
-    "description": ""
+    "description": "Metal and wood power bank concept that I thought up of one day when I was really bored. This was before I discovered USB-C, so it has 2 USB-A ports, a charge indicator, and a nice tactile button that I would imagine would be nice and clicky."
   },
   "red flower.jpg": {
-    "description": ""
+    "description": "Not exactly sure what flower this is, so I called it a red flower. I'd like to say it's a rose, but I'm definitely wrong. Whatever the species, this flower is still really pretty."
   },
   "scene.jpg": {
-    "description": ""
+    "description": "Not really sure what inspired this. I think it may have been the end of SCP Operation Overlord. Anyway, it's a bunch of floating embered bodies over a lake. Was going for a spooky vibe, not really sure I feel it anymore though."
   },
   "skateboard.mp4": {
-    "description": ""
+    "description": "This skateboard, if you can believe it, was actually being ridden by a really cool dolphin. I don't know why this render doesn't have the dolphin, I'll have to go back in someday and look for him. Made as an entry for the background video at a local skateboard event, loops perfectly."
   },
   "solitaire.graph": {
-    "description": ""
+    "description": "Got bored again. Made solitaire this time. Whoops. I think this version is called Klondike solitaire? But I'm not really sure. It is still fun to play though. Double clicking should be functional, but I'm not really sure how far I got with implementing that. The longest part, believe it or not, was actually making the cards. I had to manually plot the points for every rank, suit, and especially bad were the face cards 🫩"
   },
   "sunrise.jpg": {
-    "description": ""
+    "description": "Really pretty sunrise off the side of a cruise ship in the middle of the ocean. No light pollution that night."
   },
   "Sunset Tree.jpg": {
-    "description": ""
+    "description": "One of my earliest Blender works that looks really quite pretty. Not sure what caused the painted-like effect, but my best guess is a really low sample render and a really aggresive denoiser. Either way, quite like how it looks."
   },
   "tetris.graph": {
-    "description": ""
+    "description": "What could have caused me to make this? Oh yeah, I got bored again. I swear, give me something to do, and I won't keep making these graphs. Something to pass the time with I suppose. Fun to make, fun to play. Uses a little known Desmos quirk where you can control a movable point with the arrow keys by doing I think it was Ctrl-Alt-P and then tabbing."
   },
   "The Globe Theatre.jpg": {
-    "description": ""
+    "description": "Recreation of Shakespeare's Globe Theatre I made for another class. Could be better, but I wasn't the best at Blender back then."
   },
   "Tunnel.jpg": {
-    "description": ""
+    "description": "Just a bunch of cubes forming a cool tunnel towards a blue ???."
   },
   "Untitled Ball Game Thumbnail.jpg": {
-    "description": ""
+    "description": "The thumbnail I made for my game jam submission \"Untitled Ball Game\". This was in Blender, the actual Unity game I wish it looked this good. The time limits didn't really provide much time to perfect that though."
   },
   "volumetrics.jpg": {
-    "description": ""
+    "description": "Cool volumetrics captured also at the Grand Canyon. Noticing a pattern? This might not have been my own hand shooting this, I believe I was the one standing on the faraway rock. Might have been a tripod or someone else. "
   },
   "white flowers.jpg": {
-    "description": ""
+    "description": "Some nice white flowers on a tree. Not really sure what tree or flowers these are, but they make quite the nice picture. The sky was also cloudy so it was another white thing. This picture then looks black and white, which I think is pretty cool."
   },
   "Yearbook Cover.jpg": {
-    "description": ""
+    "description": "The cover I made for one year of my school's yearbook. Our campus is really pretty, so I was flying a drone around it after-hours one day and got this nice angle. Then, the cover competition was announced, and I didn't really think it fair to just upload a picture I was able to get just because I had a drone, so I remade it in Blender, and it arguably looks better, since I can control the lighting however I like. This sunset lighting was a really good choice for that year, since I graduated that year."
   }
 }

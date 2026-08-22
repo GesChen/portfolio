@@ -42,6 +42,10 @@ for d in data.keys():
         for td in todel:
             del data[d][td]
 
+# backup
+with open(os.path.join(thisdir, "metadata.json.backup"), "w", encoding="utf-8") as backup:
+    json.dump(curdesc, backup, indent=2)
+
 # dump
 with open(os.path.join(thisdir, "metadata.json"), "w", encoding="utf-8") as file:
     json.dump(data, file, indent=2)
