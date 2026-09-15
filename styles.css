@@ -311,6 +311,7 @@ html, body {
 
     padding: 5%;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 #pvcontent * {

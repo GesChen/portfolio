@@ -179,7 +179,8 @@ async function preview(file) {
     pvname.textContent = file;
     pvcontent.appendChild(itemDiv, pvcontent.firstChild);
     
-    await new Promise(resolve => setTimeout(resolve, 200)); // artificial wait 
+    // you are evil
+    //await new Promise(resolve => setTimeout(resolve, 200)); // artificial wait 
     // pjpeg loads kinda slow still
     document.body.style.cursor = 'default';
 }
@@ -193,14 +194,20 @@ const descText = document.getElementById('desctext');
 const selectedcount = document.getElementById('selectedcount');
 
 let selected = [];
+let selectedI = [];
 
-async function select(file, itemDiv) {
+function select(file, itemDiv) {
     if (!shift) {
         desel();
     }
 
-    if (!shift) selected = []
+    if (!shift) { 
+        selected = [];
+        selectedI = [];
+    }
+
     selected.push(file);
+    selectedI.push(all.findIndex(e => e == itemDiv));
     
     itemDiv.classList.add('selected');
 
@@ -229,6 +236,7 @@ document.getElementById('items').addEventListener('mousedown', () => {
     
     desel();
     selected = [];
+    selectedI = [];
     selectedcount.textContent = '';
 })
 
@@ -250,7 +258,7 @@ var contentfull = false;
 pvcontent.addEventListener('click', ()=>{
     contentfull = !contentfull;
 
-
+    console.log('what');
 });
 
 
@@ -263,12 +271,12 @@ document.addEventListener('keydown', (e) => {
     var sx = testItem.offsetWidth;
     var sy = testItem.offsetHeight;
 
-    switch (event.key) {
+    switch (e.key) {
         case "ArrowLeft":
-            selectoff(-sx, 0, e);
+            indexselectoff(-1, e);
             break;
         case "ArrowRight":
-            selectoff(sx, 0, e);
+            indexselectoff(1, e);
             break;
         case "ArrowUp":
             selectoff(0, -sy, e);
@@ -281,8 +289,14 @@ document.addEventListener('keydown', (e) => {
 
 const items = document.getElementById('items');
 
-function indexselect(indexoff) {
+function indexselectoff(indexoff, e) {
+    e.preventDefault();
 
+    var ti = selectedI.at(-1) + indexoff;
+    if (ti < 0 || ti >= all.length) return;
+
+    var item = all[ti];
+    select(item.id, item);
 }
 
 function selectoff(offx, offy, e) {
@@ -294,7 +308,6 @@ function selectoff(offx, offy, e) {
     var cy = rect.top + rect.height / 2;
     var px = cx + offx;
     var py = cy + offy;
-
 
     if (cy + offy > window.innerHeight - rect.height / 2) {
         items.scrollBy(0, 
@@ -314,9 +327,7 @@ function selectoff(offx, offy, e) {
     if (item == null) return;
     var id = item.id;
 
-    select(id, item);
-
-    
+    select(id, item);    
 }
 
 function itemAt(x, y) {

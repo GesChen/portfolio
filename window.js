@@ -104,3 +104,11 @@ document.addEventListener('mouseup', () => {
     document.body.style.userSelect = 'auto';
 });
 
+var zoom = 1;
+pvcontent.addEventListener('scroll', () => {
+    var child = pvcontent.firstChild;
+
+    console.log(e);
+
+    child.style.transform = `scale(${zoom})`;
+});
